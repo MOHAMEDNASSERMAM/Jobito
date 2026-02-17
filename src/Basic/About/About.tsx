@@ -1,7 +1,6 @@
 import styles from "./About.module.css";
-import image from "../../assets/Img/Gemini_Generated_Image_vzjw8dvzjw8dvzjw.png";
 import image2 from "../../assets/Img/Gemini_Generated_Image_lk4biqlk4biqlk4b.png";
-import { MapPin, Search, ArrowRight, Shield, BarChart3, Rocket, Sparkles, Users, Building2, Briefcase, Target, HeadphonesIcon, TrendingUp, Star, CheckCircle, Zap } from "lucide-react";
+import {ArrowRight, Shield, BarChart3, Rocket, Sparkles, Users, Building2, Briefcase, Target, HeadphonesIcon, TrendingUp, Star, CheckCircle, Zap } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export const About = () => {
