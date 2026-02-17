@@ -1,0 +1,23 @@
+.SignUpPage {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.butenSwitch {
+    width: 100%;
+    display: flex;
+    color: #4f46e5;
+    justify-content: center;
+    align-items: center;
+    translate: 0 -15px;
+}
+
+.google-btn { 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

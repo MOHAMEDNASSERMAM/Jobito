@@ -1,0 +1,11 @@
+.Company_Account {
+  width: 50%;
+  overflow: hidden;
+  height: 100vh;
+  padding: 10px;
+}
+
+.button-accen {
+  background-color: #1a88e1;
+  color: #fff;
+}
