@@ -27,26 +27,7 @@ export const Gh = () => {
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-
-  const logos = [
-    {
-      name: "vodafone",
-      url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Vodafone_logo.svg/1200px-Vodafone_logo.svg.png",
-    },
-    {
-      name: "intel",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Intel-logo.svg/1200px-Intel-logo.svg.png",
-    },
-    {
-      name: "tesla",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/1200px-Tesla_Motors.svg.png",
-    },
-    {
-      name: "amd",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/AMD_Logo.svg/1200px-AMD_Logo.svg.png",
-    },
-    { name: "talkit", url: "https://via.placeholder.com/100x30?text=Talkit" },
-  ];
+  
   return (
     <>
       <section className={styles.heroSection}>

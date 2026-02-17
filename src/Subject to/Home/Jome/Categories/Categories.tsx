@@ -1,4 +1,3 @@
-import React from "react";
 import "./Categories.css";
 import img from "../../../../assets/Img/WhatsApp Image 2026-02-06 at 2.24.58 PM.jpeg"
 

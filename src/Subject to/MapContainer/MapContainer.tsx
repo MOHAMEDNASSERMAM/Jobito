@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import React, { useCallback, useEffect, useState } from "react";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 interface MapProps {
   lat?: number;
@@ -8,13 +8,13 @@ interface MapProps {
 
 const center = {
   lat: 30.0444,
-  lng: 31.2357
+  lng: 31.2357,
 };
 
 const MapComponent: React.FC<MapProps> = ({ lat, lng }) => {
   const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+    id: "google-map-script",
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
 
   const [map, setMap] = useState<google.maps.Map | null>(null);
@@ -23,13 +23,19 @@ const MapComponent: React.FC<MapProps> = ({ lat, lng }) => {
     setMap(mapInstance);
   }, []);
 
+  useEffect(() => {
+    if (map) {
+      console.log("Google map instance is ready:", map);
+    }
+  }, [map]);
+
   const onUnmount = useCallback(() => {
     setMap(null);
   }, []);
 
   const location = {
     lat: lat ?? center.lat,
-    lng: lng ?? center.lng
+    lng: lng ?? center.lng,
   };
 
   if (!isLoaded) return <div>Loading...</div>;

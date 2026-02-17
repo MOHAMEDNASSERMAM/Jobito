@@ -2,13 +2,31 @@ import { useRef } from "react";
 import { reviews } from "../../../../Data/index";
 import "./Testimonial.css";
 
+type TestimonialProps = {
+  img: string;
+  name: string;
+  username: string;
+  body: string;
+};
+
 export default function Testimonial() {
   const firstRowRef = useRef(null);
   const secondRowRef = useRef(null);
 
-  const ReviewCard = ({ img, name, username, body }) => (
-    <figure className="review-card" onMouseEnter={() => {}} onMouseLeave={() => {}}>
-      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" , cursor:"pointer"}}>
+  const ReviewCard = ({ img, name, username, body }: TestimonialProps) => (
+    <figure
+      className="review-card"
+      onMouseEnter={() => {}}
+      onMouseLeave={() => {}}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          cursor: "pointer",
+        }}
+      >
         <img src={img} alt={name} />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <figcaption>{name}</figcaption>
@@ -33,7 +51,11 @@ export default function Testimonial() {
           ))}
         </div>
 
-        <div ref={secondRowRef} className="marquee reverse pause" style={{ marginTop: "1rem" }}>
+        <div
+          ref={secondRowRef}
+          className="marquee reverse pause"
+          style={{ marginTop: "1rem" }}
+        >
           {secondRow.map((review, idx) => (
             <ReviewCard key={idx} {...review} />
           ))}

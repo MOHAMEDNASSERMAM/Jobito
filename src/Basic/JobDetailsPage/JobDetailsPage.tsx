@@ -1,4 +1,3 @@
-import React from "react";
 import "./JobDetailsPage.css";
 import image from "../../assets/Img/image.png";
 import JobDetails from "../../Subject to/Browse Companies/JobDetails/JobDetails";
