@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
 import styles from "./CompaniesJobs.module.css";
-import companiesData from "../../data/companies.json";
+import companiesData from "../../Data/companies.json";
 
 type Company = {
   name: string;
