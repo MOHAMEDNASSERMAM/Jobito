@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "autopush": "git add . && git commit -m \"auto update $(date)\" && git push",
+    "autopush": "git add . && git commit -m \"auto update %date% %time%\" && git push",
+    "push": "git add . && git commit -m \"%npm_config_msg%\" && git push",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -23,10 +24,8 @@
     "chart.js": "^4.5.1",
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
-    "i": "^0.3.7",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.563.0",
-    "npm": "^11.9.0",
     "ogl": "^1.0.11",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
