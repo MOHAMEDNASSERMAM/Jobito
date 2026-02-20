@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "autopush": "git add . && git commit -m \"auto update %date% %time%\" && git push",
-    "push": "git add . && git commit -m \"%npm_config_msg%\" && git push",
+    "push": "git add . && git commit -m \"\" && git push",
     "lint": "eslint .",
     "preview": "vite preview"
   },
