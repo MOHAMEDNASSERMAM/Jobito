@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "autopush": "git add . && git commit -m \"auto update\" && git push",
     "lint": "eslint .",
     "preview": "vite preview"
   },

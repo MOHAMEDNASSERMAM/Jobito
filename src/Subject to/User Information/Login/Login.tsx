@@ -9,7 +9,6 @@ import { useState } from "react";
 import "./Login.css";
 
 export const LoginPage: React.FC<LoginProps> = ({
-  isCustomer,
   setIsCustomer,
   setIsLogin,
 }) => {
@@ -66,19 +65,19 @@ export const LoginPage: React.FC<LoginProps> = ({
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full border rounded-lg px-4 py-2"
+            className=""
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Password</label>
+          <label className="">Password</label>
           <input
             name="password"
             type="password"
             value={formData.password}
             onChange={handleChange}
             required
-            className="w-full border rounded-lg px-4 py-2"
+            className=""
           />
         </div>
 
@@ -93,7 +92,7 @@ export const LoginPage: React.FC<LoginProps> = ({
         <button
           type="button"
           onClick={() => setIsCustomer(true)}
-          className="butenSwitch w-full"
+          className=""
         >
           Switch to Customer Account
         </button>
@@ -102,5 +101,4 @@ export const LoginPage: React.FC<LoginProps> = ({
   );
 };
 
-// default export for ease of importing
 export default LoginPage;
