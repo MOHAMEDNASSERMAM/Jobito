@@ -1,5 +1,5 @@
 import styles from "./HelpSection.module.css";
-import image from "../../../assets/Gemini_Generated_Image_532p06532p06532p.png";
+import image from "../../../assets/WhatsApp Image 2026-02-20 at 12.19.09 AM.jpeg";
 import { CheckCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
