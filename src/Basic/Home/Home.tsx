@@ -12,10 +12,6 @@ export const Home = () => {
       setShowJobs(true);
     }
   }, [location.state]);
-
-  return (
-    <div>
-      {showJobs ? <JobsLandingPage /> : <Gh />}
-    </div>
-  );
+  
+  return <div>{showJobs ? <JobsLandingPage /> : <Gh />}</div>;
 };

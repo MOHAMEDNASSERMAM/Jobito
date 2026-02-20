@@ -1,5 +1,5 @@
 import "./Categories.css";
-import img from "../../../../assets/Img/WhatsApp Image 2026-02-06 at 2.24.58 PM.jpeg"
+import img from "../../../../assets/Img/WhatsApp Image 2026-02-06 at 2.24.58 PM.jpeg";
 
 const categories = [
   { title: "Design", jobs: "235 jobs available", icon: "🎨" },
@@ -23,28 +23,12 @@ const Categories = () => {
       {/* Categories Grid */}
       <div className="categories-grid">
         {categories.map((cat, index) => (
-          <div
-            key={index}
-            className="category-card"
-          >
+          <div key={index} className="category-card">
             <div className="icon">{cat.icon}</div>
             <h3>{cat.title}</h3>
             <p>{cat.jobs}</p>
           </div>
         ))}
-      </div>
-
-      {/* Bottom Banner */}
-      <div className="cta-section">
-        <div className="cta-text">
-          <h2>Start posting jobs today</h2>
-          <p>Start posting jobs for only $10.</p>
-          <button>Sign Up For Free</button>
-        </div>
-
-        <div className="cta-image">
-          <img src={img} alt="" />
-        </div>
       </div>
     </div>
   );

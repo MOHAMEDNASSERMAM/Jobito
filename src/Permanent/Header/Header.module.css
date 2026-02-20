@@ -4,5 +4,6 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 10px;
+  z-index: 1000;
   justify-content: space-between;
 }

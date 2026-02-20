@@ -1,5 +1,6 @@
 .heroSection {
   width: 100%;
+  position: relative;
   padding: 90px 0;
 }
 
@@ -14,6 +15,17 @@
   color: #202430;
   line-height: 1.1;
   margin-bottom: 25px;
+}
+
+.heroImage {
+  position: absolute;
+  width: 90%;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  translate: 350px;
+  object-fit: contain;
 }
 
 .purpleText {
@@ -46,7 +58,7 @@
   background: #ffffff;
   padding: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  max-width: 850px;
+  max-width: 500px;
   border: 1px solid #e9ebf0;
 }
 
@@ -106,13 +118,12 @@
 .companiesSection {
   width: 100%;
   padding: 40px 0;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+  width: 1100px;
+  padding: 10px 50px;
 }
 
 .leadText {
@@ -127,27 +138,27 @@
   width: 100%;
   height: 100px;
   background-color: #26a4ff;
-  justify-content: 间-between; 
+  justify-content: 间-between;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 30px;
-  opacity: 0.6; 
+  opacity: 0.6;
 }
 
 .logo {
   height: 35px;
   width: auto;
-  filter: grayscale(100%); 
+  filter: grayscale(100%);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .logo:hover {
-  filter: grayscale(0%); 
+  filter: grayscale(0%);
   opacity: 1;
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {

@@ -18,7 +18,6 @@ const CompaniesJobs = () => {
 
   const companies: Company[] = companiesData;
 
-  // فلترة بالش search + التاج
   const filteredCompanies = companies.filter((company) => {
     const matchesSearch = company.name
       .toLowerCase()

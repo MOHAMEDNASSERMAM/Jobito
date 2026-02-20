@@ -1,4 +1,8 @@
-
+import ahly from "../assets/SVG/al-ahly-egypt.svg";
+import bmw from "../assets/SVG/bmw-7.svg";
+import air from "../assets/SVG/egypt-air.svg";
+import mcdonalds from "../assets/SVG/mcdonalds-1.svg";
+import edited from "../assets/SVG/edited-image-1771542976626.svg";
 
 export interface Experience {
   title: string;
@@ -49,6 +53,9 @@ export interface Review {
   body: string;
   img: string;
 }
+export interface Partner {
+  logo: string;
+}
 
 export const reviews: Review[] = [
   {
@@ -98,5 +105,35 @@ export const reviews: Review[] = [
     username: "@eve",
     body: "So glad I found this. It has changed the game for me.",
     img: "https://robohash.org/eve",
+  },
+];
+
+export const Partners: Partner[] = [
+  {
+    logo: ahly,
+  },
+  {
+    logo: bmw,
+  },
+  {
+    logo: air,
+  },
+  {
+    logo: mcdonalds,
+  },
+  {
+    logo: edited,
+  },
+  {
+    logo: ahly,
+  },
+  {
+    logo: ahly,
+  },
+  {
+    logo: ahly,
+  },
+  {
+    logo: ahly,
   },
 ];

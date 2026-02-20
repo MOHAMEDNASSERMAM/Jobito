@@ -5,8 +5,11 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import { type Experience, experiences } from "../../../Data/index";
 import Testimonial from "./Testimonial/Testimonial";
 import Categories from "./Categories/Categories";
+import heroSectionImage from "../../../assets/WhatsApp Image 2026-02-20 at 12.17.19 AM.jpeg";
 import JobsSection from "./JobsSection/JobsSection";
 import Partners from "./Partners/Partners";
+import JobCard from "./JobCard/JobCard";
+import HiringBanner from "./HiringBanner/HiringBanner";
 
 export const Gh = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,7 +30,7 @@ export const Gh = () => {
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-  
+
   return (
     <>
       <section className={styles.heroSection}>
@@ -79,10 +82,15 @@ export const Gh = () => {
             </p>
           </div>
         </div>
+        <img
+          src={heroSectionImage}
+          alt="Hero Section"
+          className={styles.heroImage}
+        />
       </section>
       <section className={styles.companiesSection}>
         <Partners />
-        <div className="c-space section-spacing p-2.5" ref={containerRef}>
+        <div className="" ref={containerRef}>
           <h2 className="text-heading">My Work Experience</h2>
           <div ref={ref} className="relative pb-20">
             {experiences.map((item: Experience, idx: number) => (
@@ -112,7 +120,7 @@ export const Gh = () => {
                     <h3>{item.company}</h3>
                   </div>
                   {item.responsibilities.map(
-                    (content, i /* بدل contents */) => (
+                    (content, i) => (
                       <p className="mb-3 font-normal text-neutral-400" key={i}>
                         {content}
                       </p>
@@ -139,7 +147,9 @@ export const Gh = () => {
         </div>
       </section>
       <Categories />
+      <HiringBanner />
       <JobsSection />
+      <JobCard />
       <Testimonial />
     </>
   );

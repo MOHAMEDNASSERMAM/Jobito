@@ -109,32 +109,6 @@ const JobsSection = () => {
           </div>
         ))}
       </div>
-
-      <div className="latest-section">
-        <div className="section-header">
-          <h2>
-            Latest <span>jobs open</span>
-          </h2>
-          <a href="#">Show all jobs →</a>
-        </div>
-
-        <div className="latest-grid">
-          {latestJobs.map((job, index) => (
-            <div key={index} className="latest-card">
-              <div className="logo small">Logo</div>
-              <div>
-                <h4>{job.title}</h4>
-                <p>{job.company}</p>
-                <div className="tags">
-                  <span className="tag fulltime">Full Time</span>
-                  <span className="tag marketing">Marketing</span>
-                  <span className="tag design">Design</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 };

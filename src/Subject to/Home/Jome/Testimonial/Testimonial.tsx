@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { reviews } from "../../../../Data/index";
-import "./Testimonial.css";
+import Styles from "./Testimonial.module.css";
 
 type TestimonialProps = {
   img: string;
@@ -15,7 +15,7 @@ export default function Testimonial() {
 
   const ReviewCard = ({ img, name, username, body }: TestimonialProps) => (
     <figure
-      className="review-card"
+      className={Styles.reviewCard}
       onMouseEnter={() => {}}
       onMouseLeave={() => {}}
     >
@@ -41,11 +41,11 @@ export default function Testimonial() {
   const secondRow = [...reviews, ...reviews];
 
   return (
-    <div className="testimonial">
+    <div className={Styles.testimonial}>
       <h2>Hear From My Clients</h2>
 
       <div style={{ position: "relative", width: "100%" }}>
-        <div ref={firstRowRef} className="marquee pause">
+        <div ref={firstRowRef} className={`${Styles.marquee} ${Styles.pause}`}>
           {firstRow.map((review, idx) => (
             <ReviewCard key={idx} {...review} />
           ))}
@@ -53,7 +53,7 @@ export default function Testimonial() {
 
         <div
           ref={secondRowRef}
-          className="marquee reverse pause"
+          className={`${Styles.marquee} ${Styles.reverse} ${Styles.pause}`}
           style={{ marginTop: "1rem" }}
         >
           {secondRow.map((review, idx) => (
@@ -61,9 +61,8 @@ export default function Testimonial() {
           ))}
         </div>
 
-        {/* Gradient overlays */}
-        <div className="gradient-left"></div>
-        <div className="gradient-right"></div>
+        <div className={Styles.gradientLeft}></div>
+        <div className={Styles.gradientRight}></div>
       </div>
     </div>
   );

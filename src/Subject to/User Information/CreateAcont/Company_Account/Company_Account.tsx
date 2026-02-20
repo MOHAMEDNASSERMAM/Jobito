@@ -1,4 +1,5 @@
 import "./Company_Account.css";
+import { useState } from "react";
 
 type CompanyRegisterProps = {
   isCustomer: boolean;
@@ -11,6 +12,52 @@ export const CompanyRegister: React.FC<CompanyRegisterProps> = ({
   setIsCustomer,
   setIsLogin,
 }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("كلمات المرور غير متطابقة");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+    const { confirmPassword, ...dataToSend } = formData;
+
+    try {
+      const response = await fetch("http://localhost:3000/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...dataToSend, role: "company" }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("تم التسجيل بنجاح! يمكنك الآن تسجيل الدخول");
+        setIsLogin(true);
+      } else {
+        setError(data.message || "فشل التسجيل");
+      }
+    } catch (err) {
+      setError("خطأ في الاتصال بالسيرفر");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="Company_Account">
       <div className="max-w-4xl mx-auto">
@@ -24,57 +71,75 @@ export const CompanyRegister: React.FC<CompanyRegisterProps> = ({
           </button>
         </div>
 
-        {/* Form */}
-        <form className="space-y-5">
-          {/* Row 1 */}
-          <div className="grid md:grid-cols-3 gap-4">
-            <Input label="Company Name" />
-            <Input label="Company ID" />
-            <Input label="Company Phone" />
-          </div>
+        <form onSubmit={handleRegister} className="space-y-5">
+          {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
 
-          {/* Row 2 */}
-          <div className="grid md:grid-cols-3 gap-4">
-            <Input label="Tax Number" />
-            <Input label="Commercial Register" />
-            <Input label="License Number" />
-          </div>
-
-          {/* Row 3 */}
-          <Input label="Company Email" />
-
-          {/* Row 4 */}
-          <Input label="Company Address" />
-
-          {/* Row 5 */}
-          <div className="grid md:grid-cols-2 gap-4">
-            <Input label="Password" type="password" />
-            <Input label="Confirm Password" type="password" />
-          </div>
-
-          <Input label="Responsible National ID" />
-
-          <div className="flex justify-between items-center text-sm">
-            <label className="flex items-center gap-2">
-              <input type="checkbox" />
-              Remember me
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Company Name
             </label>
-            <a href="#" className="text-indigo-500 hover:underline">
-              Forgot password?
-            </a>
+            <input
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Company Email
+            </label>
+            <input
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Password</label>
+              <input
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-indigo-400"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">
+                Confirm Password
+              </label>
+              <input
+                name="confirmPassword"
+                type="password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-indigo-400"
+              />
+            </div>
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 rounded-xl font-semibold text-lg
-               from-indigo-500 to-purple-500
-              hover:scale-[1.01] transition  button-accen"
+            disabled={loading}
+            className="w-full py-3 rounded-xl font-semibold text-lg button-accen"
           >
-            Create Company
+            {loading ? "جاري التحميل..." : "Create Company"}
           </button>
+
           <button
-            onClick={() => setIsCustomer(!isCustomer)}
-            className="butenSwitch"
+            type="button"
+            onClick={() => setIsCustomer(true)}
+            className="w-full butenSwitch"
           >
             Switch to Customer Account
           </button>
@@ -83,27 +148,3 @@ export const CompanyRegister: React.FC<CompanyRegisterProps> = ({
     </div>
   );
 };
-
-import React from "react";
-
-type InputProps = {
-  label: string;
-  type?: string;
-};
-
-const Input: React.FC<InputProps> = ({ label, type = "text" }) => {
-  return (
-    <div>
-      <label className="block text-sm font-medium mb-1 text-gray-600">
-        {label}
-      </label>
-      <input
-        type={type}
-        className="w-full border rounded-lg px-4 py-2 outline-none
-        focus:ring-2 focus:ring-indigo-400"
-      />
-    </div>
-  );
-};
-
-export default Input;
